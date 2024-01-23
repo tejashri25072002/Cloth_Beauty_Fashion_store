@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!--Main section start-->
+
+{% block main-content %}
+    
+<div class="row ">
+
+    {% for x in data %}
+    {% if forloop.counter == 1 %}
+    <form action="/updateprofile/{{x.id}}" method="POST">
+        {% csrf_token %}
+        <div class="col-md-5 shadow-lg p-3 mx-auto mt-5  ">
+            {% if errmsg %}
+            <div class="alert alert-danger">
+
+                {{errmsg}}
+            </div>
+            {% endif %}
+            {% if success %}
+            <div class="alert alert-success">
+
+                {{success}}
+            </div>
+            {% endif %}
+            <h5 class="bg-danger text-dark fw-bold p-2" style=" text-align: center; background: -webkit-linear-gradient(to bottom, rgb(87, 87, 216), rgb(249, 210, 236));  
+            background: linear-gradient(to bottom,rgb(87, 87, 216), rgb(249, 210, 236));">Customer details</h5>
+
+
+            <div class="mb-3">
+                <b><label for="input1" class="form-label">Username :-</label></b>
+                <input type="text" class="form-control" name="uname" id="input2" placeholder="Enter Username"
+                    value="{{x.username}}" style=" border: 1px solid; ">
+            </div>
+
+            <!-- <div class="mb-3">
+                    <b><label for="input2" class="form-label">Email :-</label></b>
+                    <input type="email" class="form-control" name="email" id="input2" placeholder="Enter Email"
+                        value="{{x.email}}" style=" border: 1px solid;" readonly>
+                </div> -->
+
+            <div class="mb-3">
+                <b><label for="input1" class="form-label">First Name :-</label></b>
+                <input type="text" class="form-control" name="firstname" id="input1" placeholder="Enter First Name"
+                    value="{{x.first_name}}" style=" border: 1px solid;">
+            </div>
+
+            <div class="mb-3">
+                <b><label for="input1" class="form-label">Last Name :-</label></b>
+                <input type="text" class="form-control" name="lastname" id="input1" placeholder="Enter Last Name"
+                    value="{{x.last_name}}" style=" border: 1px solid;">
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+            <div class="mb-3">
+                <b><label for="input1" class="form-label">Mobile No:-</label></b>
+                <input type="number" class="form-control" name="mobile" id="input1" placeholder="Enter Mobile Number"
+                    value="{{x.mobile}}" style=" border: 1px solid;">
+            </div>
+
+
+            <div class="mb-3">
+
+                <b><label for="input1" class="form-label">Address :</label></b>
+                <textarea name="address" id="input1" cols="30" rows="4" class="form-control" placeholder="Enter Address"
+                    style=" border: 1px solid;" value="{{x.address}}">{{x.address}}</textarea>
+                <br>
+                <div style="text-align: center;">
+                    <button class="btn btn-success ps-5 pe-5 ">Update profile</button>
+                </div>
+            </div>
+
+        </div>
+
+        
+        <!-- </form> -->
+
+
+    </form>
+</div>
+
+<br><br>
+
+{% endblock main-content %}
+
+<!--Main section end-->

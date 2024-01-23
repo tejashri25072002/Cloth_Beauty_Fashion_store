@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+
+<a href="/index#product"><h2><i class="ms-4 bi bi-arrow-left-circle"></i></h2></a>
+<!--Cart start-->
+
+<!--Customer Details Start-->
+<div class="row mt-2 ms-2" id="cart">
+  <div class="col-md-6 img-thumbnail bg-light shadow-lg">
+    {% for x in data %}
+    {% if forloop.counter == 1 %}
+    <h5 class="text-white p-2">Customer Details</h5>
+    <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{{x.uid.first_name}}</p>
+    <p><b>Mobile:</b>&nbsp;&nbsp;&nbsp;987867676</p>
+    <p><b>Email ID:</b>&nbsp;&nbsp;&nbsp;{{x.uid.username}}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <!--Customer Details End-->
+
+  <!--Total Amt section start-->
+  <div class="col-md-6 img-thumbnail bg-light shadow-lg">
+    <h5 class="text-white p-2">Total Amount</h5>
+    <p><b>Total&nbsp;({{items}}):</b>Rs. {{total}}</p>
+    <hr>
+    <p><b>Total Amount:</b>Rs. {{total}}</p>
+    <a href="/placeorder" class="btn btn-info text-dark fw-bold">Place Order</a><br>
+  </div>
+  <!--Total Amt section End-->
+
+  <!--Display Added Products Start-->
+  {% for x in data %}
+  {% if forloop.counter == 1 %}
+  <marquee>
+    <h4>{{x.uid}}&nbsp;&nbsp;Added Below Products</h4>
+  </marquee>
+  {% endif %}
+  <br><br>
+
+  <div class="row mt-4">
+    <div class="col-md-2 mb-3 px-2 mt-7">
+      <img src="{{x.pid.pimage.url}}" class="img-thumbnail" alt="" width="100%" height="100px">
+    </div>
+
+    <div class="col-md-8">
+      <p><b>Product Name:</b>&nbsp;&nbsp;&nbsp;{{x.pid.name}}</p>
+      <p><b>Price:</b>&nbsp;&nbsp;&nbsp;Rs. {{x.pid.price}}</p>
+      <!--Category Section start-->
+      <b>Category:</b>
+      {% if x.pid.cat == 1 %}
+      <p class="card-text">One Piece</p>
+      {% elif x.pid.cat == 2 %}
+      <p class="card-text">Lehengas</p>
+      {% elif x.pid.cat == 3 %}
+      <p class="card-text">Sarees</p>
+      {% elif x.pid.cat == 4 %}
+      <p class="card-text">Suits</p>
+      {% elif x.pid.cat == 5 %}
+      <p class="card-text">Shirts</p>
+      {% elif x.pid.cat == 6 %}
+      <p class="card-text">Jeans</p>
+      {% else %}
+      <p class="card-text">Crop Tops</p>
+      {% endif %}
+      <!--Category Section End-->
+
+
+      <!--Occassion Section start-->
+      <b>Occassion:</b>
+      {% if x.pid.occa == 1 %}
+      <p class="card-text">Anniversary</p>
+      {% elif x.pid.occa == 2 %}
+      <p class="card-text">Birthday Party</p>
+      {% elif x.pid.occa == 3 %}
+      <p class="card-text">Bachelorette Party</p>
+      {% elif x.pid.occa == 4 %}
+      <p class="card-text">Independence Day</p>
+      {% elif x.pid.occa == 5 %}
+      <p class="card-text">Wedding</p>
+      {% else %}
+      <p class="card-text">Daily Wear</p>
+      {% endif %}
+      <!--Occassion Section End-->
+
+      <p><b>Product Description:</b>&nbsp;&nbsp;&nbsp;{{x.pid.pdetails}}</p>
+      <p><b>Quantity:</b>
+        <a href="/updatequantity/0/{{x.id}}"><button class="btn btn-danger">-</button></a>
+        <input type="number" value="{{x.quantity}}" style="width: 15%;">
+        <a href="/updatequantity/1/{{x.id}}"><button class="btn btn-success">+</button></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="/remove{{x.id}}" class="btn btn-light text-dark fw-bold">Remove</a><br><br>
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+
+</div><br><br>
+<!--Display Added Products End-->
+<!--Cart end-->
+
+{% endblock main-content %}

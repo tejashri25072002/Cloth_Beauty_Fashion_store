@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+<!--Main section start-->
+{% block main-content %}
+
+<div class="col-md-12 bg-light">
+    <a href="/index"><h2><i class="ms-4 bi bi-arrow-left-circle"></i></h2></a>
+    <marquee class="marquee"><h3>Products</h3></marquee>
+    <div class="row">
+        {% for x in products %}
+        <div class="col-md-3">
+            <!--product for loop -1-->
+            <div class="card" style="width: 18rem; height:570px">
+                <img src="{{x.pimage.url}}" class="card-img-top" alt="..." height="300px">
+                <div class="card-body">
+                  <h5 class="card-title">{{x.name}}</h5>
+                  <p class="card-text">Price : {{x.price}}</p>
+                  <!--Category section Start-->
+                  <b>Category:</b>
+                  {% if x.cat == 1 %}
+                  <p class="card-text">One Piece</p>
+                  {% elif x.cat == 2 %}
+                  <p class="card-text">Lehengas</p>
+                  {% elif x.cat == 3 %}
+                  <p class="card-text">Sarees</p>
+                  {% elif x.cat == 4 %}
+                  <p class="card-text">Suits</p>
+                  {% elif x.cat == 5 %}
+                  <p class="card-text">Shirts</p>
+                  {% elif x.cat == 6 %}
+                  <p class="card-text">Jeans</p>
+                  {% elif x.cat == 7 %}
+                  <p class="card-text">Crop Tops</p>
+                  {% else %}
+                  <p class="card-text">Daily Wear</p>
+                  {% endif %}
+                  <!--Category section End-->
+
+                  <!--Occassion section Start-->
+                  <b>Occassion:</b>
+                  {% if x.occa == 1 %}
+                  <p class="card-text">Anniversary</p>
+                  {% elif x.occa == 2 %}
+                  <p class="card-text">Birthday Party</p>
+                  {% elif x.occa == 3 %}
+                  <p class="card-text">Bachelorette Party</p>
+                  {% elif x.occa == 4 %}
+                  <p class="card-text">Independence Day</p>
+                  {% elif x.occa == 5 %}
+                  <p class="card-text">Wedding</p>
+                  {% else %}
+                  <p class="card-text">Daily Wear</p>
+                  {% endif %}
+                  <!--Occassion section End-->
+                  <a href="/productdetails/{{x.id}}" class="btn btn-primary">See More About...</a>
+                </div>
+            </div><br><br>
+        </div>
+        {% endfor %}
+    </div><br><br>
+<!--Product Section end-->
+</div>
+</div><br><br><br><br>
+{% endblock main-content %}

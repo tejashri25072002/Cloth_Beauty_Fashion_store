@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!--Main section start-->
+
+{% block main-content %}
+<a href="/index"><h2><i class="ms-4 bi bi-arrow-left-circle"></i></h2></a>
+
+<div class="container" id="customerservices">
+        <div class="row">
+        <div class="col-md-12 mt-5">
+            <div class="alert alert-light" role="alert">
+                <i class="bi bi-exclamation-triangle-fill text-warning"></i>
+                <b>Important: </b>Amount greater than Rs.10000 is not accepted by RazorPay Method payment. And sometimes it not accepted Mobile Number for payment just accept only UPI ID.
+            </div>
+            <div class="alert alert-light" role="alert">
+                <i class="bi bi-exclamation-triangle-fill text-warning"></i>
+                You can view payment page in your preferred language by click on payment option languages. 
+            </div>
+            <div class="alert alert-light" role="alert">
+                <i class="bi bi-exclamation-triangle-fill text-warning"></i>
+                For more information contact to us.
+            </div><br><br>
+
+            <h2>Hello. What can we help you with?</h2>
+        </div><hr>
+        <div class="row">
+            <h3>Somethings you can do here</h3><br><br>
+            <div class="col-4 border">
+                <img src="{% static 'assets\images\orderbox.png' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Your Orders</p>
+                <p>You Can see your orders</p>
+            </div>
+            <!--<div class="col-4 border">
+                <img src="{% static 'assets\images\return.jpg' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Return and Refunds</p>
+                <p>You Can return your orders</p>
+            </div>-->
+            <div class="col-4 border">
+                <img src="{% static 'assets\images\home.jpg' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Manage Addresses</p>
+                <p>Update your address</p>
+            </div>
+            <div class="col-4 border">
+                <img src="{% static 'assets\images\payment.jpg' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Payment Settings</p>
+                <p>We can Use various payment methods</p>
+            </div>
+            <div class="col-4 border">
+                <img src="{% static 'assets\images\account.jpg' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Account Settings</p>
+                <p>Change Password and update login information</p>
+            </div>
+            <div class="col-4 border">
+                <img src="{% static 'assets\images\resp.jpg' %}" alt="" width="90px">
+                <p class="fw-bold d-inline">Responsive Website</p>
+                <p>User can use this website on various devices like mobile, tab, laptop, etc.</p>
+            </div>
+        </div>
+    </div>
+</div><br><br>
+
+{% endblock main-content %}
+
+<!--Main section end-->

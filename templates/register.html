@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <title>Registration Form</title>
+</head>
+<body class="register">
+<!--Registration section start-->
+  <div class="container">
+    <div class="row mt-4">
+       <div class="col-12"></div> 
+       <a href="/index" style="text-decoration: none; text-align: center; font-size: larger; font-weight: bolder;">Home</a>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4 shadow mt-5 p-3 mx-auto">
+            <h2 class="text-center">Registration</h2>   
+            {% if errmsg %}
+            <div class="alert alert-danger">
+                {{errmsg}}
+            </div>
+            {% endif %}
+            <!--Registration Form Start-->
+            <form action="/register" method="POST">      
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="input1" class="form-label fw-bold">Username:</label>
+                    <input type="text" name="uname" class="form-control" id="input1" placeholder="Enter First name Only">
+                </div>
+                <div class="mb-3">
+                    <label for="input2" class="form-label">Email ID:</label>
+                    <input type="email" name="uemail" class="form-control" id="input2" placeholder="Enter Username here">
+                </div>
+                <div class="mb-3">
+                    <label for="input3" class="form-label">Password:</label>
+                    <input type="password" name="upass" class="form-control" id="input3" >
+                </div>
+                <div class="mb-3">
+                    <label for="input4" class="form-label">Confirm Password:</label>
+                    <input type="password" name="ucpass" class="form-control" id="input4" >
+                </div>
+                <div class="mb-3 text-center">
+                    <input type="submit" class="btn btn-info fw-bold" value="Register" >
+                    <br><br>
+                    Already User?&nbsp;&nbsp;<a href="/login" style="text-decoration: none; color: rgb(23, 10, 166); font-weight: bolder;">Login</a>
+                </div>
+                <!--Success Message Section Start-->
+                {% if success %}
+                <div class="alert alert-success">
+                    {{success}}
+                </div>
+                {% endif %}
+                <!--Success Message Section End-->
+            </form>
+            <!--Registration Form End-->
+        </div>
+    </div>
+<!--Registration section End-->
+</div>
+</body>
+</html>

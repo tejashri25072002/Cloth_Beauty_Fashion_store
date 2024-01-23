@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block emailsend %}
+<!--Success message start-->
+{% if emailsend %}
+<div class="alert alert-success fw-bold mt-4 text-light text-center" style="background-color:  #4f68e2;">
+    {{emailsend}}
+</div>
+{% endif %}
+<!--Success message end-->
+{% endblock emailsend %}
+
+<!--Banner start-->
+
+{% block banner_slider %}<br><br>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'assets\images\4.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\5.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\6.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\7.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\8.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\9.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\10.jpg' %}" class="d-block w-100" alt="..." height="500">
+        </div>
+    </div>
+</div>
+{% endblock banner_slider %}<br>
+
+<!--Banner start-->
+
+<!--Main section start-->
+{% block main-content %}
+<div class="row mt-3 ms-2">
+    <!--Filter side bar start-->
+    <div class="col-md-2" id="minmax">
+        <form action="/range">
+            <div>
+                <label for="" class="form-label">Min Val</label>
+                <input type="number" name="min" class="form-control" placeholder="Minimum Value">
+            </div>
+            <div>
+                <label for="" class="form-label">Max Val</label>
+                <input type="number" name="max" class="form-control" placeholder="Maximum Value">
+            </div><br>
+            <div>
+                <input type="submit" class="btn btn-danger">
+            </div>
+        </form><br>
+        <h5>Sort By</h5>
+        <hr>
+        <p><a href="/sort/0">Low to High</a></p>
+        <p><a href="/sort/1">High to Low</a></p>
+        <br>
+
+        <h5>Occassion</h5>
+        <hr>
+        <p><a href="/occafilter/1">Anniversary</a></p>
+        <p><a href="/occafilter/2">Birthday Party</a></p>
+        <p><a href="/occafilter/3">Bachelorette Party</a></p>
+        <p><a href="/occafilter/4">Independence Day</a></p>
+        <p><a href="/occafilter/5">Wedding</a></p>
+        <p><a href="/occafilter/6">Daily Wear</a></p>
+        <br><br><br>
+        <hr>
+    </div>
+    <!--Filter side bar end-->
+
+    <!--Product Section Start-->
+    <div class="col-md-10 bg-light">
+        <marquee class="marquee" id="product">
+            <h3>WELCOME TO BEAUTY FASHION STORE....</h3>
+        </marquee>
+        <div class="row">
+            {% for x in products %}
+            <div class="col-md-3" style="margin-left: 3%;">
+                <!--product -1-->
+                <div class="card ms-5" style="width: 18rem; height:570px;">
+                    <img src="{{x.pimage.url}}" class="card-img-top" alt="..." height="300px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.name}}</h5>
+                        <p class="card-text">Price : {{x.price}}</p>
+                        <!--Category Section Start-->
+                        <b>Category:</b>
+                        {% if x.cat == 1 %}
+                        <p class="card-text">One Piece</p>
+                        {% elif x.cat == 2 %}
+                        <p class="card-text">Lehengas</p>
+                        {% elif x.cat == 3 %}
+                        <p class="card-text">Sarees</p>
+                        {% elif x.cat == 4 %}
+                        <p class="card-text">Suits</p>
+                        {% elif x.cat == 5 %}
+                        <p class="card-text">Shirts</p>
+                        {% elif x.cat == 6 %}
+                        <p class="card-text">Jeans</p>
+                        {% elif x.cat == 7 %}
+                        <p class="card-text">Crop Tops</p>
+                        {% else %}
+                        <p class="card-text">Daily Wear</p>
+                        {% endif %}
+                        <!--Category Section End-->
+
+                        <!--Occasssion Section Start-->
+                        <b>Occassion:</b>
+                        {% if x.occa == 1 %}
+                        <p class="card-text">Anniversary</p>
+                        {% elif x.occa == 2 %}
+                        <p class="card-text">Birthday Party</p>
+                        {% elif x.occa == 3 %}
+                        <p class="card-text">Bachelorette Party</p>
+                        {% elif x.occa == 4 %}
+                        <p class="card-text">Independence Day</p>
+                        {% elif x.occa == 5 %}
+                        <p class="card-text">Wedding</p>
+                        {% else %}
+                        <p class="card-text">Daily Wear</p>
+                        {% endif %}
+                        <!--Occasssion Section End-->
+                        <a href="/productdetails/{{x.id}}" class="btn text-light"
+                            style="background-color:  #4f68e2;">See More About...</a>
+                    </div>
+                </div><br><br>
+            </div>&nbsp;&nbsp;&nbsp;
+            {% endfor %}
+        </div><br><br>
+        <!--Product Section end-->
+    </div>
+</div><br><br><br><br>
+{% endblock main-content %}
+
+<!--Main section end-->

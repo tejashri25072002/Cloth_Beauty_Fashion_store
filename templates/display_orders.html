@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!--Main section start-->
+
+{% block main-content %}
+
+<h3 style="text-align: center; margin-right: 190px;margin-top: 30px;">Order History</h3>
+<!--Customer Details Start-->
+<div class="row mt-2" id="ostatus">
+    <div class="col-md-12 img-thumbnail bg-light shadow-lg">
+      {% for x in data %}
+      {% if forloop.counter == 1 %}
+      <h5 class="text-dark p-2 bg-info">Customer Details</h5>
+      <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{{x.uid.username}}</p>
+      <p><b>Mobile:</b>&nbsp;&nbsp;&nbsp;987867676</p>
+      <p><b>Email ID:</b>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+<!--Customer Details End-->
+<!--Display Added Products Start-->
+{% for x in data %}
+{% if forloop.counter == 1 %}
+    <marquee><h4>{{x.uid}}&nbsp;&nbsp;Orders</h4></marquee>
+{% endif %}
+      <br><br>
+      
+      <div class="row mt-4">
+        <div class="col-md-2 mb-3 px-2 mt-7">
+          <img src="{{x.pid.pimage.url}}" class="img-thumbnail" alt="" width="100%" height="100px">
+        </div>
+        
+        <div class="col-md-4 border">
+          <p><b>Product Name:</b>&nbsp;&nbsp;&nbsp;{{x.pid.name}}</p>
+          <p><b>Price:</b>&nbsp;&nbsp;&nbsp;Rs. {{x.pid.price}}</p>
+          <!--Category Section start-->
+          <b>Category:</b>
+          {% if x.pid.cat == 1 %}
+          <p class="card-text">One Piece</p>
+          {% elif x.pid.cat == 2 %}
+          <p class="card-text">Lehengas</p>
+          {% elif x.pid.cat == 3 %}
+          <p class="card-text">Sarees</p>
+          {% elif x.pid.cat == 4 %}
+          <p class="card-text">Suits</p>
+          {% elif x.pid.cat == 5 %}
+          <p class="card-text">Shirts</p>
+          {% elif x.pid.cat == 6 %}
+          <p class="card-text">Jeans</p>
+          {% else %}
+          <p class="card-text">Crop Tops</p>
+          {% endif %}
+          <!--Category Section End-->
+
+
+          <!--Occassion Section start-->
+          <b>Occassion:</b>
+          {% if x.pid.occa == 1 %}
+          <p class="card-text">Anniversary</p>
+          {% elif x.pid.occa == 2 %}
+          <p class="card-text">Birthday Party</p>
+          {% elif x.pid.occa == 3 %}
+          <p class="card-text">Bachelorette Party</p>
+          {% elif x.pid.occa == 4 %}
+          <p class="card-text">Independence Day</p>
+          {% elif x.pid.occa == 5 %}
+          <p class="card-text">Wedding</p>
+          {% else %}
+          <p class="card-text">Daily Wear</p>
+          {% endif %}
+          <!--Occassion Section End-->
+
+          <p><b>Product Description:</b>&nbsp;&nbsp;&nbsp;{{x.pid.pdetails}}</p>
+          <p><b>Payment Status:</b><a class="btn btn-success">Paid</a></p><br><br>
+        </div>
+      </div>
+      {% endfor %}
+    
+  </div><br><br>
+<!--Display Added Products End-->
+<!--Cart end-->
+
+{% endblock main-content %}

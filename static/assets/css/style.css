@@ -1,0 +1,142 @@
+  /** Navbar CSS Satrt**/
+  nav.navbar ul li a {
+    position:relative;
+    z-index: 1;
+    text-transform: uppercase;
+  }
+  nav.navbar ul li a:hover {
+    color: #684709;
+  }
+  nav.navbar ul li a:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    content: '.';
+    color: transparent;
+    background: #edda0d;
+    visibility: none;
+    opacity: 0;
+    z-index: -1;
+  }
+  nav.navbar ul li a:hover:after {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+  }
+  
+  .navbar{
+   /* fallback for old browsers */
+   background: -webkit-linear-gradient(to bottom, rgb(87, 87, 216), rgb(249, 210, 236));  
+   background: linear-gradient(to bottom,rgb(87, 87, 216), rgb(249, 210, 236)); 
+   }
+   
+  #brandname{
+  text-transform: uppercase; 
+  box-shadow: 20px 20px 10px #edda0d; 
+  font-family: cursive;
+  }
+
+  /** Navbar CSS End**/
+
+
+  /** Registration CSS Start **/
+  .register{
+    background: #2980B9;  /* fallback for old browsers */
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+    background-attachment: fixed;
+  }
+  
+  .marquee{
+    background-color: cyan;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bolder;
+  }
+  /** Registration Form header CSS **/
+  #header{
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  }
+  /** Registration CSS End **/
+
+  /** Min-max CSS Start **/
+  #minmax{
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  }
+
+  #minmax p a{
+    text-decoration: none;
+  }
+  /** Min-max CSS End **/
+
+  /**Cart CSS Start**/
+  #cart{
+    background-image: linear-gradient( 135deg, #ffea75 10%, #e7bffa 100%);
+    background-attachment: fixed;
+  }
+
+  #cart h5{
+    background: rgb(16, 17, 17);
+    background: radial-gradient(circle, rgb(14, 14, 14) 0%, rgb(70, 71, 71) 100%);
+  }
+
+  #cart marquee{
+    background: rgb(156, 156, 156);
+    background: radial-gradient(circle, rgb(137, 137, 138) 0%, rgb(88, 88, 88) 100%);
+    font-family: cursive;
+    color:white;
+    text-decoration: underline;
+  }
+  /**Cart CSS End**/
+
+
+/** Login CSS Start **/
+.login-block{
+background: black;  /* fallback for old browsers  */
+background: -webkit-linear-gradient(to bottom, rgb(126, 126, 239), rgb(11, 11, 14));  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom,rgb(126, 126, 239), rgb(8, 8, 9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+float:left;
+width:100%;
+padding : 50px 0;
+}
+.banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+
+.carousel-inner{border-radius:0 10px 10px 0; height:500px;}
+.carousel-caption{text-align:left; left:5%;}
+.login-sec{padding: 50px 30px; position:relative;}
+.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
+.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
+.login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
+.btn-login{color: white; font-weight: bolder;}
+/** Login CSS End **/
+
+/**Contact Css Start**/
+#contact body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+#contact .bg-image {
+  background-image: url('https://media.istockphoto.com/id/1644744760/photo/fashionable-mature-women-shopping-for-clothes-in-fashion-boutique-store.jpg?s=612x612&w=0&k=20&c=HXG19z8-9iMImwktpHpir6IafE2mbKEB4s10azT6HIc=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/**Contact Css End**/
+
+#customerservices .alert{
+  box-shadow: 20px 20px 80px #edda0d;        
+}
+
+#ostatus{
+  background-image: linear-gradient( 135deg,#ffea75 10%, #e5c7f3 100%);
+  background-attachment: fixed;
+}
